@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bcsvsms7jksn" path="res://script/bunpick.gd" id="1_eyfrx"]
 [ext_resource type="Texture2D" uid="uid://dow5gddlsjcoi" path="res://icon.svg" id="2_6s32a"]
 [ext_resource type="Script" uid="uid://urbxiqe0enk6" path="res://script/trashcan.gd" id="3_6s32a"]
-[ext_resource type="Script" uid="uid://bv3uftvubd3gc" path="res://scene/grill_1.gd" id="3_plb6v"]
+[ext_resource type="Script" uid="uid://bv3uftvubd3gc" path="res://script/grill_1.gd" id="3_plb6v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xrivr"]
 size = Vector2(112, 119)
@@ -13,36 +13,38 @@ size = Vector2(114.687485, 118.33334)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xrivr"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b1lj4"]
+
 [node name="grillbert" type="Node2D" unique_id=1707622631]
 
-[node name="Bun" type="Area2D" parent="." unique_id=2133173928]
+[node name="Bunzone" type="Area2D" parent="." unique_id=2133173928]
 position = Vector2(132, 562)
 scale = Vector2(1.9200001, 1.9200001)
 script = ExtResource("1_eyfrx")
 
-[node name="Bunclick" type="CollisionShape2D" parent="Bun" unique_id=2018891238]
+[node name="Bunclick" type="CollisionShape2D" parent="Bunzone" unique_id=2018891238]
 position = Vector2(46, -49.5)
 shape = SubResource("RectangleShape2D_xrivr")
 
-[node name="Sprite2D" type="Sprite2D" parent="Bun" unique_id=484312703]
+[node name="Sprite2D" type="Sprite2D" parent="Bunzone" unique_id=484312703]
 modulate = Color(1.0991465, 1.0991465, 1.0991465, 1)
 position = Vector2(46.875, -50.520832)
 scale = Vector2(0.8620418, 0.8620418)
 texture = ExtResource("2_6s32a")
 
 [node name="grill1" type="Area2D" parent="." unique_id=1726855729]
+position = Vector2(876, 475)
 script = ExtResource("3_plb6v")
 
 [node name="grillclick" type="CollisionShape2D" parent="grill1" unique_id=652496753]
-position = Vector2(857.9, 460.60004)
 scale = Vector2(1.9200001, 1.9200001)
 shape = SubResource("RectangleShape2D_13qdw")
 
 [node name="Label" type="Label" parent="grill1" unique_id=1365245206]
-offset_left = 777.99994
-offset_top = 422.00003
-offset_right = 822.99994
-offset_bottom = 445.00003
+offset_left = -90.00001
+offset_top = -51.0
+offset_right = -45.000008
+offset_bottom = -28.0
 scale = Vector2(3.7279205, 3.799901)
 text = "GRILL"
 
@@ -62,6 +64,21 @@ offset_bottom = -20.999996
 scale = Vector2(3.0623636, 3.4651232)
 text = "TRASH"
 
-[connection signal="input_event" from="Bun" to="Bun" method="_on_input_event"]
+[node name="prepzone" type="Area2D" parent="." unique_id=1810284445]
+position = Vector2(640, 130)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="prepzone" unique_id=1178149671]
+scale = Vector2(11.08, 11.08)
+shape = SubResource("RectangleShape2D_b1lj4")
+
+[node name="Label" type="Label" parent="prepzone" unique_id=851510874]
+offset_left = -74.0
+offset_top = -46.0
+offset_right = -34.0
+offset_bottom = -23.0
+scale = Vector2(3.8267148, 3.8267148)
+text = "PREP"
+
+[connection signal="input_event" from="Bunzone" to="Bunzone" method="_on_input_event"]
 [connection signal="input_event" from="grill1" to="grill1" method="_on_input_event"]
 [connection signal="input_event" from="trashcan" to="trashcan" method="_on_input_event"]

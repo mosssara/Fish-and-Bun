@@ -1,9 +1,30 @@
 [gd_scene format=3 uid="uid://cgohygd4sw0i"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vxbwr"]
-load_path = "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
+[ext_resource type="Texture2D" uid="uid://dow5gddlsjcoi" path="res://icon.svg" id="1_5lem4"]
+[ext_resource type="Script" uid="uid://crlqnj0d8u87e" path="res://script/bun.gd" id="1_lorh1"]
 
-[node name="bun" type="Node2D" unique_id=1300082294]
+[sub_resource type="SpriteFrames" id="SpriteFrames_13qdw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_5lem4")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=481760678]
-texture = SubResource("CompressedTexture2D_vxbwr")
+[sub_resource type="CircleShape2D" id="CircleShape2D_b1lj4"]
+
+[node name="StaticBody2D" type="StaticBody2D" unique_id=714578673]
+script = ExtResource("1_lorh1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=775264034]
+sprite_frames = SubResource("SpriteFrames_13qdw")
+
+[node name="cooktime" type="Timer" parent="." unique_id=1787109346]
+one_shot = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=251103812]
+scale = Vector2(-6.7967796, -6.7967796)
+shape = SubResource("CircleShape2D_b1lj4")
