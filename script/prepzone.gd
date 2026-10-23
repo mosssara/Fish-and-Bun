@@ -8,10 +8,12 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 		elif Global.current_select != null:
 			if Global.parent.name == "grill1":
 				Global.grill1 = false
-				Global.foodstack.append(Global.current_select.status)
-				print(Global.current_select.name)
-				print(Global.foodstack)
-				Global.current_select.free()
+			else:
+				Global.grill2 = false
+			Global.foodstack.append(Global.current_select.status)
+			print(Global.current_select.name)
+			print(Global.foodstack)
+			Global.current_select.free()
 				
 		#need to write script to display the food stacking
 		Global.select_bun = false

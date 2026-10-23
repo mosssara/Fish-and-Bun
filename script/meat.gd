@@ -15,31 +15,34 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if cooktime.get_time_left() >= raw and cooktime.is_stopped() == false:
-		print(cooktime.get_time_left(),"raw")
+		#print(cooktime.get_time_left(),"raw")
 		status = 21
 		
 	elif cooktime.get_time_left() >= half and cooktime.is_stopped() == false:
-		print(cooktime.get_time_left(),"half")
+		#print(cooktime.get_time_left(),"half")
 		status = 22
 	elif cooktime.get_time_left() >= cooked and cooktime.is_stopped() == false:
-		print(cooktime.get_time_left(),"cooked")
+		#print(cooktime.get_time_left(),"cooked")
 		status = 23
 	else:
-		print(cooktime.get_time_left(),"burned")
+		#print(cooktime.get_time_left(),"burned")
 		status = 0
 
 	if Global.select_meat == false:
 		animated_sprite_2d.set_modulate(Color.WHITE)
 		
-	if Global.grill1 == false:
-		cooktime.set_paused(true)
+
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void: 
 	if event is InputEventMouseButton and event.button_index == 1 and event.is_pressed() and Global.select_check(Global.select_bun,Global.select_meat, Global.select_lettuce,Global.select_secret) != true: #check left click
 		Global.current_select = get_node(get_path())
-		print("path: "+Global.current_select)
+
 		Global.parent = get_parent()
 		print(Global.current_select)
 		Global.select_meat = true #boolean to check with grill
 		animated_sprite_2d.set_modulate(Color.BLACK)
 		
 		Global.showstat()
+
+
+func _on_tree_exited() -> void:
+	cooktime.set_paused(true)

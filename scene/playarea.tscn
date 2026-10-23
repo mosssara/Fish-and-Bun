@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://urbxiqe0enk6" path="res://script/trashcan.gd" id="3_6s32a"]
 [ext_resource type="Script" uid="uid://dkpkewtdc74i8" path="res://script/meatpick.gd" id="3_8pu8s"]
 [ext_resource type="Script" uid="uid://bv3uftvubd3gc" path="res://script/grill_1.gd" id="3_plb6v"]
+[ext_resource type="Script" uid="uid://cgv7myd6wrtjx" path="res://script/grill_2.gd" id="5_3vh8y"]
 [ext_resource type="Script" uid="uid://hh5y7l7fb6ol" path="res://script/prepzone.gd" id="5_c7c5x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xrivr"]
@@ -62,6 +63,24 @@ offset_right = -45.000008
 offset_bottom = -28.0
 scale = Vector2(3.7279205, 3.799901)
 text = "GRILL"
+metadata/_edit_use_anchors_ = true
+
+[node name="grill2" type="Area2D" parent="." unique_id=476482152]
+position = Vector2(1018, 524)
+script = ExtResource("5_3vh8y")
+
+[node name="grillclick" type="CollisionShape2D" parent="grill2" unique_id=595103973]
+scale = Vector2(1.9200001, 1.9200001)
+shape = SubResource("RectangleShape2D_13qdw")
+
+[node name="Label" type="Label" parent="grill2" unique_id=661097262]
+offset_left = -90.00001
+offset_top = -51.0
+offset_right = -45.000008
+offset_bottom = -28.0
+scale = Vector2(3.7279205, 3.799901)
+text = "GRILL"
+metadata/_edit_use_anchors_ = true
 
 [node name="trashcan" type="Area2D" parent="." unique_id=1819444425]
 position = Vector2(197, 147)
@@ -99,5 +118,6 @@ text = "PREP"
 [connection signal="input_event" from="Bunzone" to="Bunzone" method="_on_input_event"]
 [connection signal="input_event" from="Meatzone" to="Meatzone" method="_on_input_event"]
 [connection signal="input_event" from="grill1" to="grill1" method="_on_input_event"]
+[connection signal="input_event" from="grill2" to="grill2" method="_on_input_event"]
 [connection signal="input_event" from="trashcan" to="trashcan" method="_on_input_event"]
 [connection signal="input_event" from="prepzone" to="prepzone" method="_on_input_event"]

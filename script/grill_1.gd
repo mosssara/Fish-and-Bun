@@ -8,22 +8,19 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 		
 		var bun = bun_scene.instantiate()
 		var meat = meat_scene.instantiate()
-		
-		match str(Global.current_select):
-			"bun":
+		print(Global.current_select)
+		match Global.current_select:
+			"Bun":
 				add_child(bun)
 				bun.global_position = global_position
-			"meat":
+				print("BUNNNNNNNNNNN")
+			"Meat":
 				add_child(meat)
 				meat.global_position = global_position
-				
+				print("MEATTTTTTTTTT")
 		Global.current_select = null
 		Global.select_bun = false
 		Global.select_meat = false
 		Global.grill1 = true
 		print("grill")
-		
-		
-
-		
 		Global.showstat()

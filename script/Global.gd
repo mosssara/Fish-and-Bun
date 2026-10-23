@@ -6,6 +6,7 @@ var select_secret = false
 var current_select = null
 var parent = null
 var grill1 = false # unoccupied
+var grill2 = false
 var foodstack = [] #array to save food order etc bread/meat/meat etc
 func select_check(select1,select2,select3,select4):
 	var result = (select1 == true or select2 == true or select3 == true or select4 == true)

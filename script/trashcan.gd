@@ -8,7 +8,8 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 		elif Global.current_select != null:
 			if Global.parent.name == "grill1":
 				Global.grill1 = false
-			#else:
+			else:
+				Global.grill2 = false
 			print(Global.current_select)
 			Global.current_select.free()
 			Global.current_select = null
