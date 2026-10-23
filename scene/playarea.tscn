@@ -7,6 +7,8 @@
 [ext_resource type="Script" uid="uid://bv3uftvubd3gc" path="res://script/grill_1.gd" id="3_plb6v"]
 [ext_resource type="Script" uid="uid://cgv7myd6wrtjx" path="res://script/grill_2.gd" id="5_3vh8y"]
 [ext_resource type="Script" uid="uid://hh5y7l7fb6ol" path="res://script/prepzone.gd" id="5_c7c5x"]
+[ext_resource type="Script" uid="uid://c55em8onn83tw" path="res://script/grill_3.gd" id="6_wcdls"]
+[ext_resource type="Script" uid="uid://cl76ji6ro54au" path="res://script/grill_4.gd" id="7_xlhpc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xrivr"]
 size = Vector2(112, 119)
@@ -17,6 +19,7 @@ size = Vector2(114.687485, 118.33334)
 [sub_resource type="CircleShape2D" id="CircleShape2D_xrivr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b1lj4"]
+size = Vector2(32.310467, 15.776171)
 
 [node name="grillbert" type="Node2D" unique_id=1707622631]
 
@@ -49,41 +52,79 @@ scale = Vector2(0.4662084, 0.4662084)
 texture = ExtResource("2_6s32a")
 
 [node name="grill1" type="Area2D" parent="." unique_id=1726855729]
-position = Vector2(736, 525)
+position = Vector2(772, 526)
 script = ExtResource("3_plb6v")
 
 [node name="grillclick" type="CollisionShape2D" parent="grill1" unique_id=652496753]
-scale = Vector2(1.9200001, 1.9200001)
+position = Vector2(36, 28.000004)
+scale = Vector2(1.3006728, 1.3006728)
 shape = SubResource("RectangleShape2D_13qdw")
 
 [node name="Label" type="Label" parent="grill1" unique_id=1365245206]
-offset_left = -90.00001
-offset_top = -51.0
-offset_right = -45.000008
-offset_bottom = -28.0
-scale = Vector2(3.7279205, 3.799901)
+offset_left = -51.000008
+offset_top = -9.0
+offset_right = -6.0000076
+offset_bottom = 14.0
+scale = Vector2(3.7679229, 3.8406756)
 text = "GRILL"
 metadata/_edit_use_anchors_ = true
 
 [node name="grill2" type="Area2D" parent="." unique_id=476482152]
-position = Vector2(1018, 524)
+position = Vector2(986, 522)
 script = ExtResource("5_3vh8y")
 
 [node name="grillclick" type="CollisionShape2D" parent="grill2" unique_id=595103973]
-scale = Vector2(1.9200001, 1.9200001)
+position = Vector2(39, 31.000004)
+scale = Vector2(1.4058235, 1.4058235)
 shape = SubResource("RectangleShape2D_13qdw")
 
 [node name="Label" type="Label" parent="grill2" unique_id=661097262]
-offset_left = -90.00001
-offset_top = -51.0
-offset_right = -45.000008
-offset_bottom = -28.0
-scale = Vector2(3.7279205, 3.799901)
+offset_left = -44.000008
+offset_top = -8.0
+offset_right = 0.9999924
+offset_bottom = 15.0
+scale = Vector2(3.7679229, 3.8406756)
+text = "GRILL"
+metadata/_edit_use_anchors_ = true
+
+[node name="grill3" type="Area2D" parent="." unique_id=579028741]
+position = Vector2(757, 292)
+script = ExtResource("6_wcdls")
+
+[node name="grillclick" type="CollisionShape2D" parent="grill3" unique_id=96528706]
+position = Vector2(48, 74)
+scale = Vector2(1.4058235, 1.4058235)
+shape = SubResource("RectangleShape2D_13qdw")
+
+[node name="Label" type="Label" parent="grill3" unique_id=398298867]
+offset_left = -40.000008
+offset_top = 25.0
+offset_right = 4.9999924
+offset_bottom = 48.0
+scale = Vector2(3.7679229, 3.8406756)
+text = "GRILL"
+metadata/_edit_use_anchors_ = true
+
+[node name="grill4" type="Area2D" parent="." unique_id=1120542899]
+position = Vector2(978, 299)
+script = ExtResource("7_xlhpc")
+
+[node name="grillclick" type="CollisionShape2D" parent="grill4" unique_id=999183033]
+position = Vector2(53, 66)
+scale = Vector2(1.4058235, 1.4058235)
+shape = SubResource("RectangleShape2D_13qdw")
+
+[node name="Label" type="Label" parent="grill4" unique_id=570105213]
+offset_left = -31.00001
+offset_top = 18.0
+offset_right = 13.99999
+offset_bottom = 41.0
+scale = Vector2(3.7679229, 3.8406756)
 text = "GRILL"
 metadata/_edit_use_anchors_ = true
 
 [node name="trashcan" type="Area2D" parent="." unique_id=1819444425]
-position = Vector2(197, 147)
+position = Vector2(147, 369)
 scale = Vector2(1.0105522, 1)
 script = ExtResource("3_6s32a")
 
@@ -100,18 +141,19 @@ scale = Vector2(3.0623636, 3.4651232)
 text = "TRASH"
 
 [node name="prepzone" type="Area2D" parent="." unique_id=1810284445]
-position = Vector2(731, 147)
+position = Vector2(524, 391)
 script = ExtResource("5_c7c5x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="prepzone" unique_id=1178149671]
+position = Vector2(-25, -23.399994)
 scale = Vector2(11.08, 11.08)
 shape = SubResource("RectangleShape2D_b1lj4")
 
 [node name="Label" type="Label" parent="prepzone" unique_id=851510874]
-offset_left = -74.0
-offset_top = -46.0
-offset_right = -34.0
-offset_bottom = -23.0
+offset_left = -99.0
+offset_top = -70.0
+offset_right = -60.0
+offset_bottom = -47.0
 scale = Vector2(3.8267148, 3.8267148)
 text = "PREP"
 
@@ -119,5 +161,7 @@ text = "PREP"
 [connection signal="input_event" from="Meatzone" to="Meatzone" method="_on_input_event"]
 [connection signal="input_event" from="grill1" to="grill1" method="_on_input_event"]
 [connection signal="input_event" from="grill2" to="grill2" method="_on_input_event"]
+[connection signal="input_event" from="grill3" to="grill3" method="_on_input_event"]
+[connection signal="input_event" from="grill4" to="grill4" method="_on_input_event"]
 [connection signal="input_event" from="trashcan" to="trashcan" method="_on_input_event"]
 [connection signal="input_event" from="prepzone" to="prepzone" method="_on_input_event"]

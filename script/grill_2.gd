@@ -2,7 +2,7 @@ extends Area2D
 
 var bun_scene = load("res://scene/bun.tscn")
 var meat_scene = load("res://scene/meat.tscn")
-
+var node_name = get_name()
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == 1 and event.is_pressed() and Global.select_check(Global.select_bun,Global.select_meat, Global.select_lettuce,Global.select_secret) == true and Global.grill2 == false:
 		
