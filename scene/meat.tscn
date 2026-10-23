@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://bkknqjyu1uqpj"]
+
+[ext_resource type="Script" uid="uid://c4w7p6lxecukd" path="res://script/meat.gd" id="1_muswl"]
+[ext_resource type="Texture2D" uid="uid://dow5gddlsjcoi" path="res://icon.svg" id="2_ldbd8"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_13qdw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ldbd8")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b1lj4"]
+
+[node name="meat" type="StaticBody2D" unique_id=714578673]
+input_pickable = true
+script = ExtResource("1_muswl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=775264034]
+sprite_frames = SubResource("SpriteFrames_13qdw")
+
+[node name="cooktime" type="Timer" parent="." unique_id=1787109346]
+one_shot = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=251103812]
+scale = Vector2(-6.7967796, -6.7967796)
+shape = SubResource("CircleShape2D_b1lj4")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
