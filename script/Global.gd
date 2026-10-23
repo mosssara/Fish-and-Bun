@@ -1,6 +1,7 @@
 extends Node
 var select_bun = false
 var select_meat = false
+var select_fish = false
 var select_lettuce = false
 var select_secret = false
 var current_select = null

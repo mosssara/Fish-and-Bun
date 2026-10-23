@@ -4,7 +4,10 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == 1 and event.is_pressed() and Global.select_check(Global.select_bun,Global.select_meat, Global.select_lettuce,Global.select_secret) == true:
 		
 		if Global.current_select is String:
-			Global.current_select = null
+				if Global.current_select == "Lettuce" or Global.current_select == "Secret":
+					Global.foodstack.append(Global.current_select)
+				print(Global.foodstack)
+				Global.current_select = null
 		elif Global.current_select != null:
 			match Global.parent.name:
 				"grill1":
