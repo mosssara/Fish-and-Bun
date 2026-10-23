@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bqv7gaytmmgu7"]
+
+[ext_resource type="Script" uid="uid://dmowkvjfv4i18" path="res://script/grill.gd" id="1_gyubn"]
+
+[node name="Node2D" type="Node2D" unique_id=1186466717]
+script = ExtResource("1_gyubn")

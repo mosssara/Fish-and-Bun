@@ -1,3 +1,9 @@
 [gd_scene format=3 uid="uid://cgohygd4sw0i"]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vxbwr"]
+load_path = "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
+
 [node name="bun" type="Node2D" unique_id=1300082294]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=481760678]
+texture = SubResource("CompressedTexture2D_vxbwr")

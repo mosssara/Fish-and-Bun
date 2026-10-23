@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="catburger"
+run/main_scene="uid://c2grw8taiyhi5"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Global="*uid://cxjsu61sai01"
 
 [display]
 
