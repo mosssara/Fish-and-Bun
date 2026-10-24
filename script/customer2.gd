@@ -28,17 +28,19 @@ func order():
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == 1 and event.is_pressed():
 		if Global.cus2 == Global.foodstack:# all correct 100% value
-			Global.score += len(Global.foodstack)*5*Global.multiplier
 			Global.multiplier += len(Global.secret)*0.1
+			Global.score += len(Global.foodstack)*5*Global.multiplier
+			Global.money += len(Global.foodstack)*5*Global.multiplier
 		elif 0 in Global.foodstack or 11 in Global.foodstack or 21 in Global.foodstack: # something burn -0.2 multi and 80% value
 			Global.multiplier -= 0.2
 			Global.score += len(Global.cus2)*4*Global.multiplier
-			Global.multiplier += len(Global.secret)*0.1
+			Global.money += len(Global.cus2)*4*Global.multiplier
 		elif len(Global.foodstack) == 0: #pass 
 			Global.multiplier -= 0.1 
 
 		else: # something wrong but not burn
 			Global.score += len(Global.foodstack)*4*Global.multiplier # 80%
+			Global.money += len(Global.foodstack)*4*Global.multiplier # 80%
 			Global.multiplier += len(Global.secret)*0.1
 		print("Score and multi:",Global.score, " ",Global.multiplier)
 		Global.foodstack.clear()

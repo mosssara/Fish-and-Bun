@@ -1,6 +1,6 @@
 extends Node2D
 @onready var cooktime: Timer = $cooktime
-@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var sprite_2d: Sprite2D = $Sprite2D
 
 var raw = 13 # 13 sec-time set is raw
 var half = 8 # 8 sec to 11.999 sec is half
@@ -17,18 +17,23 @@ func _process(delta: float) -> void:
 	if cooktime.get_time_left() >= raw and cooktime.is_stopped() == false:
 		#print(cooktime.get_time_left(),"raw")
 		status = 11
+		sprite_2d.region_rect = Rect2(0,16,16,16)
 	elif cooktime.get_time_left() >= half and cooktime.is_stopped() == false:
 		#print(cooktime.get_time_left(),"half")
 		status = 12
+		sprite_2d.region_rect = Rect2(16,16,16,16)
 	elif cooktime.get_time_left() >= cooked and cooktime.is_stopped() == false:
 		#print(cooktime.get_time_left(),"cooked")
 		status = 13
+		sprite_2d.region_rect = Rect2(32,16,16,16)
 	else:
 		#print(cooktime.get_time_left(),"burned")
 		status = 0
+		sprite_2d.region_rect = Rect2(48,16,16,16)
+
 	
 	if Global.select_bun == false:
-		animated_sprite_2d.set_modulate(Color.WHITE)
+		sprite_2d.set_modulate(Color.WHITE)
 		
 	
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void: 
@@ -38,7 +43,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 		Global.parent = get_parent()
 		print(Global.current_select)
 		Global.select_bun = true #boolean to check with grill
-		animated_sprite_2d.set_modulate(Color.BLACK)
+		sprite_2d.set_modulate(Color.BLACK)
 		
 		Global.showstat()
 

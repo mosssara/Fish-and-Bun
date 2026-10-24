@@ -21,7 +21,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 					Global.current_select = null
 					Global.select_lettuce = false
 				elif Global.current_select == "Secret":
-					if Global.secret.size() < 2:
+					if Global.secret.size() < 1:
 						Global.secret.append("Secret")
 					print(Global.secret)
 					Global.current_select = null

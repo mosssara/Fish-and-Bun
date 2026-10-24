@@ -34,12 +34,13 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 		elif 0 in Global.foodstack or 11 in Global.foodstack or 21 in Global.foodstack: # something burn -0.2 multi and 80% value
 			Global.multiplier -= 0.2
 			Global.score += len(Global.cus1)*4*Global.multiplier
-			Global.money += len(Global.secret)*0.1
+			Global.money += len(Global.cus1)*4*Global.multiplier
 		elif len(Global.foodstack) == 0: #pass 
 			Global.multiplier -= 0.1 
 
 		else: # something wrong but not burn
 			Global.score += len(Global.foodstack)*4*Global.multiplier # 80%
+			Global.money += len(Global.foodstack)*4*Global.multiplier # 80%
 			Global.multiplier += len(Global.secret)*0.1
 			
 		print("Score and multi:",Global.score, " ",Global.multiplier)

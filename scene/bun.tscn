@@ -1,18 +1,7 @@
 [gd_scene format=3 uid="uid://cgohygd4sw0i"]
 
-[ext_resource type="Texture2D" uid="uid://dow5gddlsjcoi" path="res://icon.svg" id="1_5lem4"]
 [ext_resource type="Script" uid="uid://crlqnj0d8u87e" path="res://script/bun.gd" id="1_lorh1"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_13qdw"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_5lem4")
-}],
-"loop": 1,
-"name": &"default",
-"speed": 5.0
-}]
+[ext_resource type="Texture2D" uid="uid://cmm61ma2sy73q" path="res://asset/catburger.png" id="2_lorh1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b1lj4"]
 
@@ -20,15 +9,19 @@ animations = [{
 input_pickable = true
 script = ExtResource("1_lorh1")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=775264034]
-sprite_frames = SubResource("SpriteFrames_13qdw")
-
 [node name="cooktime" type="Timer" parent="." unique_id=1787109346]
 one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=251103812]
 scale = Vector2(-6.7967796, -6.7967796)
 shape = SubResource("CircleShape2D_b1lj4")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=370999612]
+texture_filter = 1
+scale = Vector2(8, 8)
+texture = ExtResource("2_lorh1")
+region_enabled = true
+region_rect = Rect2(32, 16, 16, 16)
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
