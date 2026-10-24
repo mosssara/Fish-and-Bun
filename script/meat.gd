@@ -1,15 +1,15 @@
 extends Node2D
 @onready var cooktime: Timer = $cooktime
-@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var sprite_2d: Sprite2D = $Sprite2D
 
-var raw = 10 # 12 sec-time set is raw
-var half = 5 # 6 sec to 11.999 sec is half
+var raw = 12 # 12 sec-time set is raw
+var half = 8 # 6 sec to 11.999 sec is half
 var cooked = 0.5 # 1-6 is cookes and less than 1 is burned
 
 var status = 21 # 1 = raw ,2 = half, 3 = cooked, 0 = burned
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	cooktime.start(15)
+	cooktime.start(13)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -17,19 +17,21 @@ func _process(delta: float) -> void:
 	if cooktime.get_time_left() >= raw and cooktime.is_stopped() == false:
 		#print(cooktime.get_time_left(),"raw")
 		status = 21
-		
+		sprite_2d.region_rect = Rect2(0,32,16,16)
 	elif cooktime.get_time_left() >= half and cooktime.is_stopped() == false:
 		#print(cooktime.get_time_left(),"half")
 		status = 22
+		sprite_2d.region_rect = Rect2(16,32,16,16)
 	elif cooktime.get_time_left() >= cooked and cooktime.is_stopped() == false:
 		#print(cooktime.get_time_left(),"cooked")
 		status = 23
+		sprite_2d.region_rect = Rect2(32,32,16,16)
 	else:
 		#print(cooktime.get_time_left(),"burned")
-		status = 0
-
+		status = 2
+		sprite_2d.region_rect = Rect2(48,32,16,16)
 	if Global.select_meat == false:
-		animated_sprite_2d.set_modulate(Color.WHITE)
+		sprite_2d.set_modulate(Color.WHITE)
 		
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void: 
@@ -39,7 +41,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 		Global.parent = get_parent()
 		print(Global.current_select)
 		Global.select_meat = true #boolean to check with grill
-		animated_sprite_2d.set_modulate(Color.BLACK)
+		sprite_2d.set_modulate(Color.BLACK)
 		
 		Global.showstat()
 

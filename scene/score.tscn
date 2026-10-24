@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://b76vyfpiq8h2a"]
+
+[ext_resource type="Script" uid="uid://b278m1avjkx43" path="res://scene/score.gd" id="1_mqqlh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8mbct"]
+font_size = 40
+
+[node name="Control" type="Control" unique_id=510169995]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mqqlh")
+
+[node name="display" type="Label" parent="." unique_id=1895774262]
+layout_mode = 0
+offset_left = 489.0
+offset_top = 263.0
+offset_right = 490.0
+offset_bottom = 318.0
+label_settings = SubResource("LabelSettings_8mbct")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="." unique_id=1586506751]
+layout_mode = 0
+offset_left = 480.0
+offset_top = 540.0
+offset_right = 584.0
+offset_bottom = 571.0
+action_mode = 0
+text = "MAIN MENU"
+flat = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

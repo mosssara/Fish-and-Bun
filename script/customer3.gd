@@ -10,7 +10,8 @@ func diff(ar1,ar2):
 @onready var cooldown: Timer = $Cooldown
 	
 func _ready() -> void:
-	order()
+	hide()
+	cooldown.start(randi_range(3,20))
 	
 func order():
 	show()

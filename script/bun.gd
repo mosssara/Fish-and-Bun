@@ -28,7 +28,7 @@ func _process(delta: float) -> void:
 		sprite_2d.region_rect = Rect2(32,16,16,16)
 	else:
 		#print(cooktime.get_time_left(),"burned")
-		status = 0
+		status = 1
 		sprite_2d.region_rect = Rect2(48,16,16,16)
 
 	

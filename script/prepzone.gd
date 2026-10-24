@@ -10,7 +10,13 @@ var Secret = secret_scene.instantiate()
 
 var topper = null # most recent item on the burger
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if event is InputEventMouseButton and event.button_index == 1 and event.is_pressed() and Global.select_check(Global.select_bun,Global.select_meat, Global.select_lettuce,Global.select_secret) == true:
+	if event is InputEventMouseButton and event.button_index == 1 and event.is_pressed() and Global.select_check(Global.select_bun,Global.select_meat, Global.select_lettuce,Global.select_secret) == true and Global.foodstack.size() <= 6:
+		if str(Global.current_select) == "Secret":
+				if Global.secret.size() < 1:
+					Global.secret.append("Secret")
+					Global.current_select = null
+					Global.select_secret = false
+	if event is InputEventMouseButton and event.button_index == 1 and event.is_pressed() and Global.select_check(Global.select_bun,Global.select_meat, Global.select_lettuce,Global.select_secret) == true and Global.foodstack.size() < 6:
 		
 		if Global.current_select is String and Global.stack != 0:
 				if Global.current_select == "Lettuce":
@@ -20,9 +26,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 					Global.stack += 1
 					Global.current_select = null
 					Global.select_lettuce = false
-				elif Global.current_select == "Secret":
-					if Global.secret.size() < 1:
-						Global.secret.append("Secret")
+					
 					print(Global.secret)
 					Global.current_select = null
 					Global.select_secret = false
@@ -69,4 +73,3 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 		Global.select_secret = false
 		Global.current_select = null
 		Global.showstat()
-		

@@ -14,7 +14,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 				"grill3":
 					Global.grill3 = false
 				"grill4":
-					Global.grill3 = false
+					Global.grill4 = false
 			print(Global.current_select)
 			Global.current_select.free()
 			Global.current_select = null

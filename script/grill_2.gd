@@ -21,11 +21,11 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 		match Global.current_select:
 			"Bun":
 				add_child(bun)
-				bun.global_position = Vector2(global_position[0]+10,global_position[1]+10)
+				bun.global_position = Vector2(global_position[0],global_position[1])
 				print("BUNNNNNNNNNNN")
 			"Meat":
 				add_child(meat)
-				meat.global_position = Vector2(global_position[0]+10,global_position[1]+10)
+				meat.global_position = Vector2(global_position[0],global_position[1])
 				print("MEATTTTTTTTTT")
 			_:
 				Global.current_select = null
