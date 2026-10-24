@@ -6,10 +6,15 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 		if Global.current_select is String:
 			Global.current_select = null
 		elif Global.current_select != null:
-			if Global.parent.name == "grill1":
-				Global.grill1 = false
-			else:
-				Global.grill2 = false
+			match Global.parent.name:
+				"grill1":
+					Global.grill1 = false
+				"grill2":
+					Global.grill2 = false
+				"grill3":
+					Global.grill3 = false
+				"grill4":
+					Global.grill3 = false
 			print(Global.current_select)
 			Global.current_select.free()
 			Global.current_select = null

@@ -26,4 +26,8 @@ sprite_frames = SubResource("SpriteFrames_xrivr")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1020000575]
 shape = SubResource("RectangleShape2D_xrivr")
 
+[node name="Cooldown" type="Timer" parent="." unique_id=811718886]
+one_shot = true
+
 [connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]

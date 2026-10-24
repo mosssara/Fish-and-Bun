@@ -10,8 +10,16 @@ var grill1 = false # unoccupied
 var grill2 = false
 var grill3 = false
 var grill4 = false
-
+var stack = 0
 var foodstack = [] #array to save food order etc bread/meat/meat etc
+var secret = []
+var foodlist = [13,23,"Lettuce"]
+var cus1 = []
+var cus2 = []
+var cus3 = []
+var score = 100
+var multiplier = 1
+var money = 100
 func select_check(select1,select2,select3,select4):
 	var result = (select1 == true or select2 == true or select3 == true or select4 == true)
 	return result

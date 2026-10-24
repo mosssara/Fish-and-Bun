@@ -11,6 +11,10 @@
 [ext_resource type="Script" uid="uid://hh5y7l7fb6ol" path="res://script/prepzone.gd" id="5_c7c5x"]
 [ext_resource type="Script" uid="uid://c55em8onn83tw" path="res://script/grill_3.gd" id="6_wcdls"]
 [ext_resource type="Script" uid="uid://cl76ji6ro54au" path="res://script/grill_4.gd" id="7_xlhpc"]
+[ext_resource type="PackedScene" uid="uid://7b1nuiuqsu25" path="res://scene/customer.tscn" id="12_a56yp"]
+[ext_resource type="Script" uid="uid://besury1r7j2q" path="res://script/food.gd" id="13_jw1dx"]
+[ext_resource type="Script" uid="uid://n6nsg24l5dqc" path="res://script/customer2.gd" id="13_xt4x4"]
+[ext_resource type="Script" uid="uid://l7ws0icq3dy7" path="res://script/customer3.gd" id="14_f14dw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xrivr"]
 size = Vector2(112, 119)
@@ -183,6 +187,20 @@ offset_right = -60.0
 offset_bottom = -47.0
 scale = Vector2(3.8267148, 3.8267148)
 text = "PREP"
+
+[node name="customer1" parent="." unique_id=1772565026 instance=ExtResource("12_a56yp")]
+position = Vector2(177, 145)
+
+[node name="customer2" parent="." unique_id=851884568 instance=ExtResource("12_a56yp")]
+position = Vector2(385, 146)
+script = ExtResource("13_xt4x4")
+
+[node name="customer3" parent="." unique_id=1953141605 instance=ExtResource("12_a56yp")]
+position = Vector2(606, 146)
+script = ExtResource("14_f14dw")
+
+[node name="food" type="Node2D" parent="." unique_id=45715993]
+script = ExtResource("13_jw1dx")
 
 [connection signal="input_event" from="Bunzone" to="Bunzone" method="_on_input_event"]
 [connection signal="input_event" from="Lettucezone" to="Lettucezone" method="_on_input_event"]
