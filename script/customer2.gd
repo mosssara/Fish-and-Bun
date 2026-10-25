@@ -6,6 +6,8 @@ extends Area2D
 @onready var sprite_4: Sprite2D = $Sprite2D4
 @onready var sprite_5: Sprite2D = $Sprite2D5
 @onready var sprite_6: Sprite2D = $Sprite2D6
+@onready var sad: AudioStreamPlayer = $sad
+@onready var satisfy: AudioStreamPlayer = $satisfy
 
 func getrect(id):
 	match id:
@@ -113,18 +115,20 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 			Global.multiplier += len(Global.secret)*0.1
 			Global.score += len(Global.foodstack)*5*Global.multiplier
 			Global.money += len(Global.foodstack)*5*Global.multiplier
-		elif 0 in Global.foodstack or 11 in Global.foodstack or 21 in Global.foodstack: # something burn -0.2 multi and 80% value
+			satisfy.play()
+		elif 1 in Global.foodstack or 2 in Global.foodstack or 11 in Global.foodstack or 21 in Global.foodstack: # something burn -0.2 multi and 80% value
 			Global.multiplier -= 0.2
 			Global.score += len(Global.foodstack)*4*Global.multiplier
 			Global.money += len(Global.foodstack)*4*Global.multiplier
+			sad.play()
 		elif len(Global.foodstack) == 0: #pass 
 			Global.multiplier -= 0.05
-
+			sad.play()
 		else: # something wrong but not burn
 			Global.score += len(Global.foodstack)*4*Global.multiplier # 80%
 			Global.money += len(Global.foodstack)*4*Global.multiplier # 80%
 			Global.multiplier += len(Global.secret)*0.1
-			
+			sad.play()
 		print("Score and multi:",Global.score, " ",Global.multiplier)
 		Global.foodstack.clear()
 		Global.secret.clear()
@@ -133,7 +137,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 		set_pickable(false)
 		
 		print(Global.foodstack)
-		cooldown.start(randi_range(15,20))
+		cooldown.start(randi_range(7,20))
 		
 		
 func _on_cooldown_timeout() -> void:
