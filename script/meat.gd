@@ -34,7 +34,14 @@ func _process(delta: float) -> void:
 		sprite_2d.set_modulate(Color.WHITE)
 		
 
-func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void: 
+func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if Global.current_select is not String:
+		if event is InputEventMouseButton and event.button_index == 1 and event.is_pressed() and Global.current_select == get_node(get_path()):
+			Global.select_meat = false
+			Global.current_select = null
+			Global.showstat()
+			return
+	
 	if event is InputEventMouseButton and event.button_index == 1 and event.is_pressed() and Global.select_check(Global.select_bun,Global.select_meat, Global.select_lettuce,Global.select_secret) != true: #check left click
 		Global.current_select = get_node(get_path())
 

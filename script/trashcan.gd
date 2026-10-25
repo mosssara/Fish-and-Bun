@@ -1,6 +1,9 @@
 extends Area2D
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event is InputEventMouseButton and event.button_index == 1 and event.is_pressed() and Global.current_select == null:
+		Global.foodstack.clear()
+		Global.secret.clear()
 	if event is InputEventMouseButton and event.button_index == 1 and event.is_pressed() and Global.select_check(Global.select_bun,Global.select_meat, Global.select_lettuce,Global.select_secret) == true:
 		
 		if Global.current_select is String:

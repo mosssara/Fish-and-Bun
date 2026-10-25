@@ -10,10 +10,17 @@ func _ready() -> void:
 	pass	
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if event is InputEventMouseButton and event.button_index == 1 and event.is_pressed() and Global.select_check(Global.select_bun,Global.select_meat, Global.select_lettuce,Global.select_secret) != true: #check left click
-		Global.select_meat = true #boolean to check with grill
+	if event is InputEventMouseButton and event.button_index == 1 and event.is_pressed() and Global.select_meat == true:
+		Global.select_meat = false #boolean to check with grill
+		Global.current_select = null
+		Global.showstat()
+		return
+	if event is InputEventMouseButton and event.button_index == 1 and event.is_pressed(): #check left click
+		Global.select_bun = false #boolean to check with grill
+		Global.select_meat = true
+		Global.select_lettuce = false
+		Global.select_secret = false
 		Global.current_select = "Meat"
-
 		
 		Global.showstat()
 		sprite_2d.modulate = Color("pink")
