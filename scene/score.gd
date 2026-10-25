@@ -5,7 +5,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	display.text = "SCORE\n"+str(Global.score)
+	display.text = str(Global.score)
 	Global.current_select = null
 	Global.parent = null
 	Global.grill1 = false # unoccupied

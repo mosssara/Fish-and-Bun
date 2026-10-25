@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c7qrwtnatdfow"]
 
 [ext_resource type="Script" uid="uid://baap568lcc262" path="res://script/menu.gd" id="1_jn1v7"]
+[ext_resource type="Texture2D" uid="uid://3pjhgpyyetil" path="res://asset/Menu.png" id="2_3cqhr"]
 
 [node name="Control" type="Control" unique_id=1904502273]
 layout_mode = 3
@@ -13,12 +14,19 @@ script = ExtResource("1_jn1v7")
 
 [node name="Button" type="Button" parent="." unique_id=774903859]
 layout_mode = 0
-offset_left = 517.0
-offset_top = 473.0
-offset_right = 558.0
-offset_bottom = 504.0
+offset_left = 56.000004
+offset_top = 463.99997
+offset_right = 97.0
+offset_bottom = 494.99997
+scale = Vector2(4.8361225, 3.4070296)
 action_mode = 0
-text = "Play"
+text = "
+"
 flat = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1508880800]
+position = Vector2(576, 324)
+scale = Vector2(4, 4)
+texture = ExtResource("2_3cqhr")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

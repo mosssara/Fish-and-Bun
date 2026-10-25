@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://csm3ijvudbveg"]
+
+[ext_resource type="Script" uid="uid://blbv3lye5jx0i" path="res://script/tutorial.gd" id="1_8jxoh"]
+[ext_resource type="Texture2D" uid="uid://dg6kxxgytpv86" path="res://asset/story+tutorial.png" id="2_nvmt1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xrivr"]
+size = Vector2(1152, 648)
+
+[node name="Area2D" type="Area2D" unique_id=1670469651]
+script = ExtResource("1_8jxoh")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=567782044]
+position = Vector2(576, 324)
+scale = Vector2(4, 4)
+texture = ExtResource("2_nvmt1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1080229874]
+position = Vector2(576, 324)
+shape = SubResource("RectangleShape2D_xrivr")
+
+[node name="Timer" type="Timer" parent="." unique_id=1754361075]
+one_shot = true
+autostart = true
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
